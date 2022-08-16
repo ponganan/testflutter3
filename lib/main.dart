@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter3/home_page.dart';
+import 'package:testflutter3/photo_page.dart';
+import 'package:testflutter3/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,14 +32,21 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
+  //use int currentPage for Set State of bottomNavigationBar
   int currentPage = 0;
+  //use List for list of Page
+  List<Widget> page = const [
+    HomePage(),
+    PhotoPage(),
+    ProfilePage(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter'),
       ),
-      body: const HomePage(),
+      body: page[currentPage],
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           debugPrint('Floating Action Button');
@@ -47,6 +56,7 @@ class _RootPageState extends State<RootPage> {
       bottomNavigationBar: NavigationBar(
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+          NavigationDestination(icon: Icon(Icons.add_a_photo), label: 'Photo'),
           NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
         ],
         onDestinationSelected: (int index) {
