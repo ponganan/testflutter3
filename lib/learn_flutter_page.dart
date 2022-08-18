@@ -73,7 +73,8 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
               style: ElevatedButton.styleFrom(
                 //if isSwitch? mean if isSwitch true then put Color.green
                 //and otherwise : mean if isSwitch false then put Color.blue
-                primary: isSwitch ? Colors.green : Colors.blue,
+                //primary: isSwitch ? Colors.green : Colors.blue,
+                backgroundColor: isSwitch ? Colors.green : Colors.blue,
               ),
               onPressed: () {
                 debugPrint('Elevated Button');
@@ -82,7 +83,7 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
             ),
             OutlinedButton(
               style: OutlinedButton.styleFrom(
-                  // primary: isSwitch ? Colors.green : Colors.blue,
+                  //primary: isCheckbox ? Colors.blue : Colors.green,
                   ),
               onPressed: () {
                 debugPrint('Outlined Button');
@@ -126,12 +127,15 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
               },
             ),
             Checkbox(
-                value: isCheckbox,
-                onChanged: (bool? newBool) {
-                  setState(() {
+              value: isCheckbox,
+              onChanged: (bool? newBool) {
+                setState(
+                  () {
                     isCheckbox = newBool;
-                  });
-                }),
+                  },
+                );
+              },
+            ),
             Image.network(
                 'https://www.thoughtco.com/thmb/t8AnhGOqEJEaehpyjAL3yGafxnA=/3439x2579/smart/filters:no_upscale()/GettyImages_482194715-56a1329e5f9b58b7d0bcf666.jpg'),
           ],
