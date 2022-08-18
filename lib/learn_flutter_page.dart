@@ -77,7 +77,7 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
                 backgroundColor: isSwitch ? Colors.green : Colors.blue,
               ),
               onPressed: () {
-                debugPrint('Elevated Button');
+                debugPrint('Elevated Button1');
               },
               child: const Text('Elevated Button'),
             ),
